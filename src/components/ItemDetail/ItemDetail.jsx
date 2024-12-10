@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getProductById } from "../../data/asyncMock.jsx";
-import Loading from "../Loading/Loading.jsx";
-import useProductStore from "../../store/store";
+import React, { useEffect, useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import { getProductById } from "../../data/asyncMock.jsx"
+import Loading from "../Loading/Loading.jsx"
+import useProductStore from "../../store/store"
 
 const ItemDetail = () => {
-    const { productId } = useParams();
-    const navigate = useNavigate();
-    const [product, setProduct] = useState(null);  // Inicia con null
-    const [loading, setLoading] = useState(true);
-    const { addToCart } = useProductStore();
+    const { productId } = useParams()
+    const navigate = useNavigate()
+    const [product, setProduct] = useState({ product: 0, stock: 0 })
+    const [loading, setLoading] = useState(true)
+    const { addToCart } = useProductStore()
 
     useEffect(() => {
         getProductById(productId).then((data) => {
-            setProduct(data);
-            setLoading(false);
+            setProduct(data)
+            setLoading(false)
         });
     }, [productId]);
 
@@ -22,31 +22,28 @@ const ItemDetail = () => {
 
     const decrementQuantity = () => {
         if (quantity > 1) {
-            setQuantity(quantity - 1);
+            setQuantity(quantity - 1)
         }
     };
 
     const incrementQuantity = () => {
-        if (product && quantity < product.stock) {
-            setQuantity(quantity + 1);
+        if (quantity < product.stock) {
+            setQuantity(quantity + 1)
         }
     };
 
-    const precioTotal = product ? product.price * quantity : 0;
+    const precioTotal = product.price * quantity
 
     const handleAddToCart = () => {
-        if (product) {
-            addToCart({ ...product, quantity });
-            navigate("/cart");
-        }
+        addToCart({ ...product, quantity })
+        navigate("/cart")
     };
 
     if (loading) {
-        return <div className="container mx-auto max-w-[1170px]"><Loading /></div>;
+        return <div className="container mx-auto max-w-[1170px]"><Loading /></div>
     }
-
     if (!product) {
-        return <div>Producto no encontrado</div>;
+        return <div>Product not found</div>
     }
 
     return (
@@ -57,7 +54,7 @@ const ItemDetail = () => {
                 </div>
                 <div>
                     <h1 className="text-[30px] md:text-[45px] font-medium uppercase">{product.name}</h1>
-                    <p className="text-[16px] md:text-[20px] my-[20px]">{product.despcription}</p>
+                    <p className="text-[16px] md:text-[20px] my-[20px]">{product.description}</p>
                     <p className="text-[16px] md:text-[20px] my-[20px]">Stock: {product.stock}</p>
 
                     <div className="flex items-center space-x-2 my-4">
@@ -75,6 +72,5 @@ const ItemDetail = () => {
     );
 };
 
-export default ItemDetail;
-
+export default ItemDetail
 

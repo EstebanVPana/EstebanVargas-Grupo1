@@ -61,6 +61,3 @@ const ItemList = ({ products: initialProducts }) => {
 };
 
 export default ItemList
-
-
-

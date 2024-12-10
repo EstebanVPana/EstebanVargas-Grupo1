@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     { id: 1, url: "https://http2.mlstatic.com/D_Q_NP_2X_622058-MLU69158501515_042023-V.webp" },
     { id: 2, url: "https://http2.mlstatic.com/D_Q_NP_2X_720559-MLU71926287948_092023-V.webp" },
@@ -9,11 +9,11 @@ const Carousel = () => {
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
   return (
@@ -33,7 +33,7 @@ const Carousel = () => {
         onClick={prevSlide}
         className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2 rounded-full hover:bg-gray-800"
       >
-        &#10094
+        &#10094;
       </button>
       <button
         onClick={nextSlide}
@@ -65,8 +65,8 @@ const AlbumDescription = () => {
         Clásicos como "A Night at the Opera" de Queen destacan por su producción elaborada y su importancia en la historia del rock, siendo buscados tanto por su música como por su arte visual.
       </p>
     </div>
-  )
-}
+  );
+};
 
 const App = () => {
   return (
@@ -74,7 +74,7 @@ const App = () => {
       <Carousel />
       <AlbumDescription />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
