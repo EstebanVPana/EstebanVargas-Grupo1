@@ -1,12 +1,22 @@
 import React from "react"
+<<<<<<< HEAD
 import image1 from "../../Img/sale.png"
 import { Link } from "react-router-dom"
 import Carousel from "../Carousel/Carousel"
+=======
+import image1 from "../../assets/Imagenes-portada/sale.png"
+import { Link } from "react-router-dom"
+
+>>>>>>> 9f0a2bcc723becd9a28894aef414449d021cde4a
 
 
 const Home = () => {
     return ( 
         <div className="relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f0a2bcc723becd9a28894aef414449d021cde4a
             <div className="h-[700px] w-[700px] bg-primary/40 absolute -top-1/2 right-0 rounded-3xl rotate-45 -z-9 "></div>
 
             <div className="container pb-8 sm:pb-0" >
@@ -33,11 +43,19 @@ const Home = () => {
                                         "/>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                             </div>         
                         </div>
                         <Carousel />
             </div>     
     </div>  
+=======
+                            </div>
+                        </div>
+                
+            </div>
+    </div>
+>>>>>>> 9f0a2bcc723becd9a28894aef414449d021cde4a
     )
 }
 
